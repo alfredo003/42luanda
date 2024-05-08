@@ -1,17 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_div_mod.c                                       :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 11:44:11 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/08 11:46:03 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/08 11:58:48 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/08 11:59:14 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <unistd.h>
 
-void	ft_div_mod(int a, int b, int *div, int *mod)
+int	ft_sqrt(int nb)
 {
-	*div = a / b;
-	*mod = a % b;
+	int	rad_exp;
+
+	rad_exp = 1;
+	if (nb > 0)
+	{
+		while (rad_exp * rad_exp <= nb)
+		{
+			if (rad_exp * rad_exp == nb)
+				return (rad_exp);
+			if (rad_exp > 46340)
+				return (0);
+			rad_exp++;
+		}
+	}
+	return (0);
 }

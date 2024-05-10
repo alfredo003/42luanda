@@ -1,6 +1,6 @@
 SRC         = ./srcs/ft_putchar.c ./srcs/ft_swap.c ./srcs/ft_putstr.c ./srcs/ft_strlen.c ./srcs/ft_strcmp.c
 
-OBJS        = ${SRC:.c=.o}
+OBJS        = ./srcs/ft_putchar.o ./srcs/ft_swap.o ./srcs/ft_putstr.o ./srcs/ft_strlen.o ./srcs/ft_strcmp.o
 
 HEAD        = ./includes/
 
@@ -25,12 +25,13 @@ ${NAME}:    ${OBJS}
 	${AR} ${NAME} ${OBJS}
 	${LIB} ${NAME}
 
-clean:      
-	rm -f ${OBJS}
+clean:
+	${RM} ${OBJS}
 
 fclean:     clean
-	rm -f ${NAME}
+	${RM} ${NAME}
 
 re:         fclean all
 
 .PHONY:     all clean fclean re
+

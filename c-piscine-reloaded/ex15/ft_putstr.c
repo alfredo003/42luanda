@@ -5,25 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 12:02:54 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/08 12:04:28 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/10 16:19:06 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/10 16:19:09 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<unistd.h>
 
-void	ft_putchar(char c)
-{
-	write (1, &c, 1);
-}
+void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {
-	int	i;
+	int	counter;
 
-	i = 0;
-	while (str[i])
+	counter = 0;
+	while (str[counter] != '\0')
 	{
-		ft_putchar(str[i]);
-		i += 2;
+		ft_putchar(str[counter]);
+		counter++;
 	}
 }

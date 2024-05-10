@@ -6,15 +6,12 @@
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 12:59:42 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/06 13:12:24 by achivela         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:35:00 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <unistd.h>
 
-void	print_number(char c)
-{
-	write(1, &c, 1);
-}
+void	ft_putchar(char c);
 
 void	ft_print_numbers(void)
 {
@@ -23,7 +20,7 @@ void	ft_print_numbers(void)
 	i = 0;
 	while (i <= 9)
 	{
-		print_number(i + '0');
+		ft_putchar(i + '0');
 		i++;
 	}
 }

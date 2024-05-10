@@ -5,22 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 11:47:58 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/08 11:50:46 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/10 16:09:45 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/10 16:09:49 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_iterative_factorial(int nb)
 {
-	int	i;
+	int	result;
 
-	if (nb < 1)
+	result = nb;
+	if ((nb < 0) || (nb >= 13))
 		return (0);
-	i = nb;
-	while (i > 1)
+	else if ((nb == 0) || (nb == 1))
+		return (1);
+	else if (nb > 0)
 	{
-		nb = nb * (i - 1);
-		i--;
+		nb--;
+		while (nb > 0)
+		{
+			result *= nb;
+			nb--;
+		}
 	}
-	return (nb);
+	return (result);
 }

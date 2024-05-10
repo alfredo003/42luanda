@@ -5,40 +5,51 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 17:22:45 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/09 17:22:50 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/10 15:25:25 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/10 15:25:28 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
 
+void	ft_putchar(char ch)
+{
+	write(1, &ch, 1);
+}
+
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		write(1, &str[i++], 1);
+}
+
 int	main(int argc, char *argv[])
 {
-	int	fd;
-	char	buffer[1024];
-	int	bytes_read;
+	int		fd;
+	char	ch;
 
-	if (argc != 2)
-	{
-		if (argc < 2)
-			write(2, "File name missing.\n", 19);
-		else
-			write(2, "Too many arguments.\n", 20);
-		return (1);
-	}
 	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
+	if (argc > 2)
 	{
-		write(2, "Cannot read file.\n", 17);
-		return (1);
+		ft_putstr("Too many arguments.\n");
+		return (0);
 	}
-	bytes_read = read(fd, buffer, 1024);
-	while ((bytes_read) > 0)
+	else if (argc < 2)
 	{
-		write(1, buffer, bytes_read);
+		ft_putstr("File name missing.\n");
+		return (0);
 	}
+	else if (fd == -1)
+	{
+		ft_putstr("Cannot read file.\n");
+		return (0);
+	}
+	while (read(fd, &ch, 1))
+		ft_putchar(ch);
 	close(fd);
 	return (0);
 }

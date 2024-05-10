@@ -5,15 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:27:08 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/06 13:27:11 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/10 16:08:30 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/10 16:08:33 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 void	ft_swap(int *a, int *b)
 {
-	char	c;
+	int	troca;
 
-	c = *a;
+	troca = *a;
 	*a = *b;
-	*b = c;
+	*b = troca;
 }

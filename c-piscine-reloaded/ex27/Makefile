@@ -1,21 +1,28 @@
-NAME = ft_display_file
-
-CC = gcc
-
-CFLAGS = -Wall -Werror -Wextra
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aquissan <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/05/07 13:10:24 by aquissan          #+#    #+#              #
+#    Updated: 2024/05/07 13:10:27 by aquissan         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 SRC = ft_display_file.c
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+EXEC = ft_display_file
+OBJ = program
 
-OBJ = $(SRC:.c=.o)
-
-all: $(NAME)
-
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
-
+all: $(SRC)
+	$(CC) -c $(SRC) -o $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(EXEC)
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(EXEC)
 
+re: fclean all

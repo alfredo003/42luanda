@@ -1,40 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 12:52:12 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/08 12:55:37 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/14 11:04:10 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/14 11:04:13 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-
-void	ft_putchar(char c);
-
-void	ft_putstr(char *str)
+int	ft_isprint(int c)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
+	if (c >= 32 && c <= 126)
 	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
-int	main(int argc, char **argv)
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		ft_putstr(argv[i]);
-		ft_putchar('\n');
-		i++;
+		return (1);
 	}
 	return (0);
 }

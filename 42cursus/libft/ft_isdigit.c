@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 16:10:23 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/10 16:10:25 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/14 10:29:09 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/14 10:32:02 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_recursive_factorial(int nb)
+int	ft_isdigit(int c)
 {
-	if ((nb < 0) || (nb >= 13))
-		return (0);
-	else if ((nb == 0) || (nb == 1))
+	if (c >= 48 && c <= 57)
 		return (1);
-	return (nb * ft_recursive_factorial(nb - 1));
+	else
+		return (0);
 }

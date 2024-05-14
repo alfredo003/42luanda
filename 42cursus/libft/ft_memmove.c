@@ -1,23 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_foreach.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/09 16:56:05 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/09 16:56:08 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/14 15:13:55 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/14 15:13:59 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_foreach(int *tab, int length, void (*f)(int))
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int	i;
+	char	*s;
+	char	*d;
+	size_t	i;
 
+	s = (char *)src;
+	d = (char *)dst;
 	i = 0;
-	while (i < length)
+	if (d > s)
 	{
-		(*f)(tab[i]);
-		++i;
+		while (len-- > 0)
+			d[len] = s[len];
 	}
+	else
+	{
+		while (i < len)
+		{
+			d[i] = s[i];
+			i++;
+		}
+	}
+	return (dst);
 }

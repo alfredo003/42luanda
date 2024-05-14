@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_is_negative.c                                   :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 13:16:37 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/06 13:19:57 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/14 10:19:33 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/14 10:20:37 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include<unistd.h>
 
-void	ft_putchar(char c);
-
-void	ft_is_negative(int n)
+int	ft_isalpha(int c)
 {
-	if (n < 0)
-		ft_putchar ('N');
-	else if (n > 0)
-		ft_putchar ('P');
+	if ((c >= 65 && c <= 90))
+		return (1);
+	else if (c >= 97 && c <= 122)
+		return (2);
 	else
-		ft_putchar ('P');
+		return (0);
 }

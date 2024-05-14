@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 11:58:48 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/08 11:59:14 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/14 13:24:26 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/14 13:24:29 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
-
-int	ft_sqrt(int nb)
+void	ft_bzero(void *s, size_t n)
 {
-	int	rad_exp;
+	size_t	i;
 
-	rad_exp = 1;
-	if (nb > 0)
+	i = 0;
+	while (i < n)
 	{
-		while (rad_exp * rad_exp <= nb)
-		{
-			if (rad_exp * rad_exp == nb)
-				return (rad_exp);
-			if (rad_exp > 46340)
-				return (0);
-			rad_exp++;
-		}
+		((char *)s)[i] = 0;
+		i++;
 	}
-	return (0);
 }

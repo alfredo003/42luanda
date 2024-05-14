@@ -1,20 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/10 16:08:30 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/10 16:08:33 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/14 11:41:04 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/14 11:41:12 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_swap(int *a, int *b)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	int	troca;
+	void	*str_ptr;
 
-	troca = *a;
-	*a = *b;
-	*b = troca;
+	str_ptr = str;
+	while (n--)
+		*(unsigned char *)str++ = (unsigned char)c;
+	return (str_ptr);
 }

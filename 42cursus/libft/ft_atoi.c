@@ -1,22 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 11:41:04 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 11:41:12 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/15 17:39:56 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/15 17:40:01 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+int	ft_isspace(int c)
 {
-	void	*str_ptr;
+	return (c == ' ' || (c >= '\t' && c <= '\v'));
+}
 
-	str_ptr = str;
-	while (n--)
-		*(unsigned char *)str++ = (unsigned char)c;
-	return (str_ptr);
+int	ft_atoi(const char *nptr)
+{
+	int	sign;
+	int	nbr;
+
+	sign = 1;
+	nbr = 0;
+	while (ft_isspace(*nptr))
+		nptr++;
+	if (*nptr == '-')
+		sign = -1;
+	if (*nptr == '-' || *nptr == '+')
+		++nptr;
+	while (ft_isdigit(*nptr))
+	{
+		nbr = (nbr * 10) + (*nptr - '0');
+		nptr++;
+	}
+	return (nbr * sign);
 }

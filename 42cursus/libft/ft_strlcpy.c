@@ -9,23 +9,24 @@
 /*   Updated: 2024/05/14 15:51:17 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-size_t	ft_strlcpy(char *dest, char *src, unsigned int size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned int	i;
-	unsigned int	count;
+	size_t	i;
+	size_t	len_str;
 
+	len_str = ft_strlen(src);
 	i = 0;
-	count = 0;
-	while (src[count])
-		count++;
-	if (size < 1)
-		return (count);
-	while (src[i] && i < size - 1)
+	if (!dst || !src)
+		return (0);
+	if (!size)
+		return (len_str);
+	while (i < size - 1 && src[i] != '\0')
 	{
-		dest[i] = src[i];
+		dst[i] = src[i];
 		i++;
 	}
-	dest[i] = '\0';
-	return (count);
+	dst[i] = '\0';
+	return (len_str);
 }

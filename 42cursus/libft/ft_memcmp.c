@@ -1,22 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 11:41:04 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 11:41:12 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/15 18:29:46 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/15 18:29:49 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
-{
-	void	*str_ptr;
 
-	str_ptr = str;
-	while (n--)
-		*(unsigned char *)str++ = (unsigned char)c;
-	return (str_ptr);
-}

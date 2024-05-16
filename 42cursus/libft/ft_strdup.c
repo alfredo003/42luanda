@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 18:29:46 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/15 18:29:49 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 10:30:12 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 10:30:14 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+char	*ft_strdup(char *src)
 {
-	const unsigned char	*ss1;
-	const unsigned char	*ss2;
-	size_t				i;
+	char	*new;
+	int		i;
+	int		size;
 
+	size = 0;
+	while (src[size])
+		++size;
+	new = malloc(sizeof(char) * (size + 1));
+	if (!(new))
+		return (NULL);
 	i = 0;
-	ss1 = (const unsigned char *)s1;
-	ss2 = (const unsigned char *)s2;
-	while (i < n)
+	while (src[i])
 	{
-		if (ss1[i] != ss2[i])
-			return (ss1[i] - ss2[i]);
+		new[i] = src[i];
 		i++;
 	}
-	return (0);
+	new[i] = '\0';
+	return (new);
 }

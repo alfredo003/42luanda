@@ -5,20 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 17:41:23 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 17:44:49 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 18:11:23 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:11:27 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_toupper(int ch)
+int	ft_toupper(int c)
 {
-	if (ch >= 'a' && ch <= 'z')
-	{
-		return (ch - ('a' - 'A'));
-	}
-	else
-	{
-		return (ch);
-	}
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }

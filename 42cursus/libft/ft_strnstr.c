@@ -1,38 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 18:09:05 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/16 18:09:08 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 18:21:28 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:21:34 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
-	int		i;
-	int		j;
-	char	*str;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	j = 0;
-	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	if (str == NULL)
-		return (NULL);
-	while (s1[i] != '\0')
+	if (needle == NULL || needle[0] == '\0')
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && i < n)
 	{
-		str[i] = s1[i];
+		if (haystack[i] == needle[j])
+		{
+			while (haystack[i + j] == needle[j] && i + j < n)
+			{
+				if (needle[j + 1] == '\0')
+					return ((char *)haystack + i);
+				j++;
+			}
+			j = 0;
+		}	
 		i++;
 	}
-	while (s2[j] != '\0')
-	{
-		str[i + j] = s2[j];
-		j++;
-	}
-	str[i + j] = '\0';
-	return (str);
+	return (NULL);
 }

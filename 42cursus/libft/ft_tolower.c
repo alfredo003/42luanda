@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 17:51:31 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 17:51:38 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 18:08:13 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:08:17 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_tolower(int c)
 {
 	if (c >= 65 && c <= 90)
-		return (c + 32);
-	else
-		return (c);
+		c += 32;
+	return (c);
 }

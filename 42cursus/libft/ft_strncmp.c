@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 14:23:29 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/15 14:24:00 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 18:14:34 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:14:38 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_strncmp(const char *s1, char *s2, size_t n)
 {
-	size_t	i;
-
-	i = 0;
+	while (*s1 != '\0' && *s1 == *s2 && n > 0)
+	{
+		s1++;
+		s2++;
+		n--;
+	}
 	if (n == 0)
 		return (0);
-	while (s1[i] != '\0' && s1[i] == s2[i] && i < n - 1)
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }

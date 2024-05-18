@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 18:10:47 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/16 18:10:52 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:57:22 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 17:57:26 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+void	ft_putchar_fd(char c, int fd)
 {
-	int	a;
-
-	a = 0;
-	while (str[a])
-		a++;
-	return (a);
+	write(fd, &c, 1);
 }

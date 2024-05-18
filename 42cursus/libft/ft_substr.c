@@ -5,25 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 10:51:04 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/16 10:51:06 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 18:12:54 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:12:59 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char	*new_str;
 	size_t	i;
 	size_t	j;
+	char	*str;
 
-	new_str = (char *)malloc(len + 1);
-	if (!s || !(new_str))
-		return (0);
-	i = start;
+	str = (char *)malloc(sizeof(*s) * (len + 1));
+	if (str == 0)
+		return (NULL);
+	i = 0;
 	j = 0;
-	while (i < ft_strlen(s) && j < len)
-		new_str[j++] = s[i++];
-	new_str[j] = '\0';
-	return (new_str);
+	while (s[i])
+	{
+		if (i >= start && j < len)
+		{
+			str[j] = s[i];
+			j++;
+		}
+		i++;
+	}
+	str[j] = 0;
+	return (str);
 }

@@ -5,35 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 17:39:56 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/15 17:40:01 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:34:16 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 17:34:27 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-int	ft_isspace(int c)
+int	ft_atoi(const char *str)
 {
-	return (c == ' ' || (c >= '\t' && c <= '\v'));
-}
+	int	i;
+	int	neg;
+	int	res;
 
-int	ft_atoi(const char *nptr)
-{
-	int	sign;
-	int	nbr;
-
-	sign = 1;
-	nbr = 0;
-	while (ft_isspace(*nptr))
-		nptr++;
-	if (*nptr == '-')
-		sign = -1;
-	if (*nptr == '-' || *nptr == '+')
-		++nptr;
-	while (ft_isdigit(*nptr))
+	i = 0;
+	neg = 1;
+	res = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		nbr = (nbr * 10) + (*nptr - '0');
-		nptr++;
+		if (str[i] == '-')
+			neg *= -1;
+		i++;
 	}
-	return (nbr * sign);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		res = (str[i] - '0') + (res * 10);
+		i++;
+	}
+	return (res * neg);
 }

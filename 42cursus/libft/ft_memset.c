@@ -5,18 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 11:41:04 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 11:41:12 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:56:56 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 17:57:01 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memset(void *str, int c, size_t n)
+void	*ft_memset(void *p, int valor, size_t tamanho)
 {
-	void	*str_ptr;
+	char	*conversor;
 
-	str_ptr = str;
-	while (n--)
-		*(unsigned char *)str++ = (unsigned char)c;
-	return (str_ptr);
+	conversor = (char *)p;
+	while (tamanho > 0)
+	{
+		conversor[tamanho - 1] = valor;
+		tamanho--;
+	}
+	return (p);
 }

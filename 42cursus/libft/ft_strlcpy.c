@@ -5,28 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 15:51:14 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 15:51:17 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 18:20:59 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:21:05 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	len_str;
 
-	len_str = ft_strlen(src);
 	i = 0;
-	if (!dst || !src)
-		return (0);
-	if (!size)
-		return (len_str);
+	if (size == 0)
+	{
+		while (src[i])
+			i++;
+		return (i);
+	}
 	while (i < size - 1 && src[i] != '\0')
 	{
-		dst[i] = src[i];
+		dest[i] = src[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (len_str);
+	if (i < size)
+		dest[i] = '\0';
+	while (src[i] != '\0')
+		i++;
+	return (i);
 }

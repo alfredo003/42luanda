@@ -5,18 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 10:19:33 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 10:20:37 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:34:16 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 17:34:27 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 int	ft_isalpha(int c)
 {
-	if ((c >= 65 && c <= 90))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
 		return (1);
-	else if (c >= 97 && c <= 122)
-		return (2);
 	else
 		return (0);
 }

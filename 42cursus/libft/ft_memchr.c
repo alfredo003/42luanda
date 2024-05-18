@@ -5,25 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 14:32:33 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/15 14:32:35 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:55:57 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 17:56:04 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	unsigned char	*str;
-	unsigned char	ch;
-	size_t			i;
+	char	*str;
+	size_t	i;
 
 	i = 0;
-	str = (unsigned char *)s;
-	ch = (unsigned char)c;
+	str = (char *)s;
 	while (i < n)
 	{
-		if (str[i] == ch)
-			return (str + i);
+		if ((unsigned char)str[i] == (unsigned char)c)
+			return ((char *)s + i);
 		i++;
 	}
 	return (NULL);

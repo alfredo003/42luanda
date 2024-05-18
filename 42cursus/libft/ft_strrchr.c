@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 18:22:39 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 18:22:46 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 18:14:59 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:15:02 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
@@ -16,11 +17,13 @@ char	*ft_strrchr(const char *s, int c)
 	int	i;
 
 	i = ft_strlen(s);
+	if (c == 0)
+		return ((char *)s + i);
 	while (i >= 0)
 	{
 		if (s[i] == c)
-			return ((char *)&s[i]);
+			return ((char *)s + i);
 		i--;
 	}
-	return (0);
+	return (NULL);
 }

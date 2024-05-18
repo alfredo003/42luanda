@@ -5,33 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 15:13:55 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 15:13:59 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:56:36 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 18:13:38 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *s1, const void *s2, size_t n)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
+	size_t	len;
 
-	s = (char *)src;
-	d = (char *)dst;
-	i = 0;
-	if (d > s)
+	len = 0;
+	if (s2 < s1)
 	{
-		while (len-- > 0)
-			d[len] = s[len];
+		len = n;
+		while (len > 0)
+		{
+			len--;
+			((unsigned char *)s1)[len] = ((unsigned char *)s2)[len];
+		}
 	}
 	else
 	{
-		while (i < len)
+		len = 0;
+		while (len < n)
 		{
-			d[i] = s[i];
-			i++;
+			((unsigned char *)s1)[len] = ((unsigned char *)s2)[len];
+			len++;
 		}
 	}
-	return (dst);
+	return (s1);
 }

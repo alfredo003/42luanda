@@ -5,21 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/15 18:24:28 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/15 18:24:31 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:57:22 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 17:57:26 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int i)
 {
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == i)
 			return ((char *)s);
 		s++;
 	}
-	if (c == '\0')
+	if (i == '\0')
 		return ((char *)s);
 	return (0);
 }

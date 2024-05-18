@@ -5,20 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 13:24:26 by achivela          #+#    #+#             */
-/*   Updated: 2024/05/14 13:24:29 by achivela         ###   ########.fr       */
+/*   Created: 2024/05/16 17:34:53 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/16 17:35:00 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_bzero(void *str, size_t n)
 {
-	size_t	i;
-
-	i = 0;
-	while (i < n)
-	{
-		((char *)s)[i] = 0;
-		i++;
-	}
+	ft_memset(str, 0, n);
 }

@@ -3,34 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 09:18:27 by yogun             #+#    #+#             */
-/*   Updated: 2022/04/11 14:58:13 by yogun            ###   ########.fr       */
+/*   Created: 2024/05/22 16:48:53 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/22 16:48:55 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*full_str;
+	static char	*full_string;
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	full_str = read_function(fd, full_str);
-	if (!full_str)
+	full_string = ft_read(fd, full_string);
+	if (!full_string)
 		return (NULL);
-	line = ft_getline(full_str);
-	full_str = ft_getrest(full_str);
+	line = ft_getline(full_string);
+	full_string = ft_getrest(full_string);
 	return (line);
 }
 
-/**
- * read the first line of a file descriptor
- */
-char	*read_function(int fd, char *str)
+char	*ft_read(int fd, char *str)
 {
 	char	*tmp;
 	int		bytes;
@@ -54,63 +50,56 @@ char	*read_function(int fd, char *str)
 	return (str);
 }
 
-/**
- * from the read string, take the first line and returns it
- */
-char	*ft_getline(char *full_str)
+char	*ft_getline(char *full_string)
 {
 	int		i;
 	char	*line;
 
 	i = 0;
-	if (!full_str[i])
+	if (!full_string[i])
 		return (NULL);
-	while (full_str[i] && full_str[i] != '\n')
+	while (full_string[i] && full_string[i] != '\n')
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (full_str[i] && full_str[i] != '\n')
+	while (full_string[i] && full_string[i] != '\n')
 	{
-		line[i] = full_str[i];
+		line[i] = full_string[i];
 		i++;
 	}
-	if (full_str[i] == '\n')
+	if (full_string[i] == '\n')
 	{
-		line[i] = full_str[i];
+		line[i] = full_string[i];
 		i++;
 	}
 	line[i] = '\0';
 	return (line);
 }
 
-/**
- * from the read string, take the first line and remove it. returns the rest
- */
-char	*ft_getrest(char *full_str)
+char	*ft_getrest(char *full_string)
 {
 	int		i;
 	int		j;
 	char	*restof;
 
 	i = 0;
-	while (full_str[i] && full_str[i] != '\n')
+	while (full_string[i] && full_string[i] != '\n')
 		i++;
-	if (!full_str[i])
+	if (!full_string[i])
 	{
-		free(full_str);
+		free(full_string);
 		return (NULL);
 	}
-	restof = (char *)malloc(sizeof(char) * (ft_strlen(full_str) - i + 1));
+	restof = (char *)malloc(sizeof(char) * (ft_strlen(full_string) - i + 1));
 	if (!restof)
 		return (NULL);
 	i++;
 	j = 0;
-	while (full_str[i])
-		restof[j++] = full_str[i++];
+	while (full_string[i])
+		restof[j++] = full_string[i++];
 	restof[j] = '\0';
-	//These last two command lines looks like wrong. So, I might need to update these two lines in repo. I will review it in 02.06.2022
-	free(full_str);
+	free(full_string);
 	return (restof);
 }

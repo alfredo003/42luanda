@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 09:19:54 by yogun             #+#    #+#             */
-/*   Updated: 2022/04/11 14:50:35 by yogun            ###   ########.fr       */
+/*   Created: 2024/05/22 16:49:03 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/22 16:49:06 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ char	*get_next_line(int fd);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strchr(char *s, int c);
 size_t	ft_strlen(char *s);
-char	*read_function(int fd, char *str);
-char	*ft_getline(char *fullStr);
-char	*ft_getrest(char *fullStr);
+char	*ft_read(int fd, char *str);
+char	*ft_getline(char *full_string);
+char	*ft_getrest(char *full_string);
 
 #endif

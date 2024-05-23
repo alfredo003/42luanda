@@ -3,17 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 09:19:50 by yogun             #+#    #+#             */
-/*   Updated: 2022/04/11 14:56:22 by yogun            ###   ########.fr       */
+/*   Created: 2024/05/22 16:49:23 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/22 16:49:26 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-/**
- * returns the length of string s without null terminator
- */
+
 size_t	ft_strlen(char *s)
 {
 	size_t	i;
@@ -43,9 +41,6 @@ char	*ft_strchr(char *s, int c)
 	}
 	return (0);
 }
-/**
- * concatanates two strings s1 and s2
- */
 
 char	*ft_strjoin(char *s1, char *s2)
 {

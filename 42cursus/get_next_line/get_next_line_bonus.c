@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: achivela <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 15:01:18 by yogun             #+#    #+#             */
-/*   Updated: 2022/04/11 15:12:46 by yogun            ###   ########.fr       */
+/*   Created: 2024/05/22 16:53:09 by achivela          #+#    #+#             */
+/*   Updated: 2024/05/22 16:53:12 by achivela         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 char	*get_next_line(int fd)
 {
-	static char	*full_str[666];
+	static char	*full_str[10];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	full_str[fd] = read_function(fd, full_str[fd]);
+	full_str[fd] = ft_read(fd, full_str[fd]);
 	if (!full_str[fd])
 		return (NULL);
 	line = ft_getline(full_str[fd]);
@@ -27,10 +27,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-/**
- * read the first line of a file descriptor
- */
-char	*read_function(int fd, char *str)
+char	*ft_read(int fd, char *str)
 {
 	char	*tmp;
 	int		bytes;
@@ -54,9 +51,6 @@ char	*read_function(int fd, char *str)
 	return (str);
 }
 
-/**
- * from the read string, take the first line and returns it
- */
 char	*ft_getline(char *full_str)
 {
 	int		i;
@@ -85,9 +79,6 @@ char	*ft_getline(char *full_str)
 	return (line);
 }
 
-/**
- * from the read string, take the first line and remove it. returns the rest
- */
 char	*ft_getrest(char *full_str)
 {
 	int		i;
